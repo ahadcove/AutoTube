@@ -1,4 +1,7 @@
 'use strict'
-module.exports = {
+const merge = require('webpack-merge')
+const keysEnv = require('./keys.env')
+
+module.exports = merge(keysEnv, {
   NODE_ENV: '"production"'
-}
+})

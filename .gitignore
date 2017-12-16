@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 todo
+config/keys.env.js
 
 # Editor directories and files
 .idea
