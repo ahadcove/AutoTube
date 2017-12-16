@@ -46,22 +46,4 @@ export default {
         top: 55px;
         right: 15px;
     }
-
-    .slide-hori-enter-active, .slide-hori-leave-active {
-        /* transition: all .60s cubic-bezier(0, 1, 0.5, 1); */
-        /* transition: opacity 0.25s ease-out; */
-        /* animation: bouncein 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) linear; */
-        transition: .2s ease-in;
-    }
-
-    .slide-hori-enter {
-        transform: translate(100%, 0);
-        opacity: 0;
-    }
-
-    .slide-hori-leave-to {
-        transform: translate(100%, 0);
-        opacity: 0;
-    }
-
 </style>

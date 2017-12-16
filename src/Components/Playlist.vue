@@ -1,12 +1,14 @@
 <template>
     <div id="playlist-page">
         <div class="playlist-head">
-            <h3>Next Videos</h3>
+            <button class="video-button" @click="previous">«</button>
+            <h3 class="playlist-title">Next Videos</h3>
+            <button class="video-button" @click="next">»</button>
         </div>
         <!-- <div class="center"> -->
-            <ul class="NextVideoContain">
+            <ul class="next-video-contain">
                 <li class="" v-for="(video, index) in videos" :key="video.etag" :current="index === vidNum">
-                    <button class="NextVideo div-button">
+                    <button class="next-video div-button" :current="index === vidNum">
                         <span class="index" @click="changeVideo(index)">{{index === vidNum ? "▶" : index+1}}</span>
                         <div class="thumbnail-container" @click="changeVideo(index)">
                             <img class="thumbnail" :src="video.snippet.thumbnails.default.url" />
@@ -47,7 +49,16 @@ export default {
         },
         clickedAuthor(channelId){
             console.log("Clicked Author", channelId)
-        }
+        },
+        next(){
+            console.log("Next video");
+            this.$store.commit("NEXT_VIDEO");
+        },
+        // Goto previous video by click
+        previous(){
+            console.log("Previous video");
+            this.$store.commit("PREVIOUS_VIDEO");
+        },
     },
     computed: {
         ...mapState({ videos: "videos", vidNum: "vidNum" }),
@@ -69,10 +80,27 @@ export default {
         width: 100%;
         min-width: 100%;
         color: var(--white);
-        padding: 20px 0;
+        padding: 16px 0;
+        display: flex;
+        align-items: center;
+        /* justify-content: space-around; */
     }
 
-    .NextVideoContain {
+    .playlist-title{
+        font-size: 1rem; 
+    }
+
+    .video-button{
+        background-color: transparent;
+        /* color: var(--biDark); */
+        color: var(--white);
+        font-size: 1.5rem;
+        padding: 0;
+        display: flex;
+        margin: auto;
+    }
+
+    .next-video-contain {
         list-style: none;
         width: 100%;
         max-width: 100%;
@@ -82,7 +110,7 @@ export default {
         padding: 2px 0px;
         overflow-y: scroll;
     }
-    .NextVideo {
+    .next-video {
         background: var(--biDark);
         /* transform: translate3d(0px, 0px, 0px); */
         cursor: pointer;
@@ -96,14 +124,14 @@ export default {
         /* border: solid 2px blue; */
     }
 
-    .NextVideo:hover {
+    .next-video:hover {
         background-color: var(--highlightDark);
     }
 
-    .NextVideo[current=true] {
+    .next-video[current=true] {
+        /* background-color: var(--activeDark); */
         background-color: var(--activeDark);
     }
-
 
     .index {
         color: var(--triDark);
@@ -119,13 +147,20 @@ export default {
         line-height: 1.5rem;
     }
 
-    /* .NextVideo:hover{
+    /* .next-video:hover{
 
     } */
 
+     /* Mobile */
+    @media (max-width: 475px) { 
+        .playlist-title{
+            font-size: .9rem;
+        }
+    }
+
     @media (min-width: 900px) { 
         #playlist-page{
-           width: 80vw;
+           width: 86vw;
         }
     }
     @media (max-width: 800px) { 

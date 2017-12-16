@@ -1,5 +1,6 @@
 <template>
       <div id="search-contain">
+            <!-- <button class="filter-button mobile" @click="closeSearch">Close</button> -->
             <button class="filter-button" @click="toggleFilter">Filter</button>
             <input class="query-input" type="text" v-model="searchQuery" @keyup.enter="search" :disabled="loading || type === 'my'" :placeholder="placeholder" ><br/>
             <div class="search-condition-contain">
@@ -41,6 +42,7 @@ export default {
 
             this.$store.commit("LOADING_ON");
             EventBus.$emit('toggle-filter', false);
+            EventBus.$emit('toggle-search', false);
 
             switch(this.type){
                 case 'video':
@@ -249,19 +251,23 @@ export default {
         height: 34px;
     }
 
-    .search-condition-contain{
-        height: 34px;
-    }
-
-    .query-input{
-        width: 20vw;
-        text-align: center;
-    }
 
     .filter-button{
         height: 100%;
+        order: 1;
     }
     
+    .query-input{
+        width: 20vw;
+        text-align: center;
+        order: 2;
+    }
+
+    .search-condition-contain{
+        height: 34px;
+        order: 3;
+    }
+
     .search-button, .searching-button{
         height: 100%;
     }
@@ -274,9 +280,26 @@ export default {
         color: inherit;
     }
 
+
+    /* Mobile */
     @media (max-width: 475px) { 
-        #search-contain{
-            display: none;
+        .filter-button{
+            order: 2;
+            /* width: 20px; */
         }
+        .query-input{
+            order: 1;
+            width: 40vw;
+        }
+        .search-condition-contain{
+            order: 3;
+        }
+
+       .filter-button, .search-button{
+            /* padding: 5px 3px; */
+            padding: 10px 10px;
+        }
+
+
     }
 </style>

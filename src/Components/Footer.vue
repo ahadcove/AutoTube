@@ -37,7 +37,7 @@ export default {
         position: absolute;
         bottom: 0;
         left: 0;
-        height: 80px;
+        height: 50px;
         width: 100%;
         background-color: var(--biDark);
         display: flex;
@@ -47,7 +47,8 @@ export default {
     }
 
     .footer-author{
-        margin-left: 10px
+        margin-left: 10px;
+        font-size: .8rem;
     }
 
     .footer-links{

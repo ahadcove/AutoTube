@@ -10,6 +10,7 @@ import VueLocalStorage from 'vue-ls';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import NavBar from './Components/NavBar.vue';
+import MobileMenu from './Components/MobileMenu.vue';
 import Footer from './Components/Footer.vue';
 import Search from './Components/Search.vue';
 import ErrorShow from './Components/ErrorShow.vue';
@@ -46,6 +47,7 @@ Vue.use(VueYouTubeEmbed);
 Vue.use(VueLocalStorage);
 
 Vue.component('NavBar', NavBar);
+Vue.component('MobileMenu', MobileMenu);
 Vue.component('Footer', Footer);
 Vue.component('Search', Search);
 Vue.component('ErrorShow', ErrorShow);

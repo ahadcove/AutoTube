@@ -163,10 +163,12 @@ export default {
         align-items: center;
         justify-content: center;
     }
+
     .video-title{
         margin-bottom: 15px;
-        max-width: 45vw;
+        max-width: 85vw;
         max-height: 120px; 
+        font-size: 1.5rem;
     }
 
     .video-button{
@@ -177,7 +179,6 @@ export default {
         height: 20px; */
         /* height: 20px; */
         /* color: blue; */
-
     }
 
     .VideoBox{
@@ -204,6 +205,14 @@ export default {
         height: 80vh;
         /* padding: 0 40px; */
         background-color: black;
+    }
+
+        /* Mobile */
+    @media (max-width: 475px) { 
+        .video-title{
+            max-width: 80vw;
+            font-size: 1rem;
+        }
     }
 
     @media (max-width: 800px) { 

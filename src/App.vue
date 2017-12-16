@@ -70,6 +70,7 @@ body{
 }
 
 button{
+    font-size: .6rem;
     cursor: pointer;
     color: var(--triDark);
     background-color: var(--compDark);
@@ -120,7 +121,7 @@ button:focus{
 
 .page{
     width: 100%;
-    min-height: calc(100vh - 40px);
+    min-height: calc(100vh - 50px);
     /* padding: 0 40px 20px 40px; */
     padding: 40px 0 20px 0;
     overflow-x: hidden;
@@ -161,6 +162,7 @@ a:active {
     text-decoration: none;
 }
 
+
 .thumbnail-container {
     width: 100px;
     height: 56px;
@@ -198,7 +200,7 @@ a:active {
     margin: 0 0 4px 0;
     max-height: 2.9rem;
     overflow: hidden;
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 500;
     line-height: 1.5rem;
 }
@@ -212,7 +214,7 @@ a:active {
     display: block;
     max-height: 1.8rem;
     overflow: hidden;
-    font-size: .9rem;
+    font-size: .8rem;
     font-weight: 400;
     line-height: 1.8rem;
 }
@@ -247,6 +249,83 @@ a:active {
     color: var(--youtubeRed);
 }
 
+.slide-enter-active, .slide-leave-active {
+    /* transition: all .60s cubic-bezier(0, 1, 0.5, 1); */
+    /* transition: opacity 0.25s ease-out; */
+    /* animation: bouncein 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) linear; */
+    transition: .5s;
+}
+
+.slide-enter {
+    transform: translate(0, -110%);
+}
+
+.slide-leave-to {
+    transform: translate(0, -110%);
+}
+
+.slide-hori-enter-active, .slide-hori-leave-active {
+    /* transition: all .60s cubic-bezier(0, 1, 0.5, 1); */
+    /* transition: opacity 0.25s ease-out; */
+    /* animation: bouncein 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) linear; */
+    transition: .2s ease-in;
+}
+
+.slide-hori-enter {
+    transform: translate(100%, 0);
+    opacity: 0;
+}
+
+.slide-hori-leave-to {
+    transform: translate(100%, 0);
+    opacity: 0;
+}
+
+@keyframes rollout { 
+    0% { transform: translate3d(0, 300px, 0); }
+    100% { transform: translate3d(1000px, 300px, 0); }
+}
+
+@keyframes bouncein { 
+    0% { transform: translate3d(0, -400px, 0); }
+    100% { transform: translate3d(0, 0px, 0); }
+    /* 20%, 40%, 60%, 80%, 95%, 99%, 100% { @include ballb() }
+    30% { @include ballb(-80px); }
+    50% { @include ballb(-40px); }
+    70% { @include ballb(-30px); }
+    90% { @include ballb(-15px); }
+    97% { @include ballb(-10px); } */
+}
+
+
+/* Desktop */
+@media (min-width: 476px) { 
+    .desktop{
+        display: block;
+    }
+    .mobile{
+        display: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 475px) { 
+    html{
+        font-size: 14px;
+    }
+    .desktop{
+        display: none;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    a:focus, button:focus, input:focus, .div-button:focus{ 
+        outline: none;
+    }
+
+}
 
 @media (max-width: 319px) { 
     .page{

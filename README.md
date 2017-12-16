@@ -28,42 +28,51 @@ Leave it in the background and start your work day in a matter of seconds.
 Open up **Filter** and you will be given a list of options to choose from:
 
 ### Search Type
-#### Video
- This is a simple search  that will make a playlist of what ever keyword you're searching for.
 
-#### My Subscriptions
-- The bread and butter of AutoTube. **My Subscriptions** will create a playlist of all of your subscriptions newest videos in a matter of seconds.
-Currently it get's the 3 latest videos from your subscriptions
-
-#### Channel
-- Search for a channels username and you will be given a list to pick from. After picking the list it will make a playlist from the channel taking into account of any other filters you have.
-
-#### Playlist
-- Search for a playlists by keyword and you will be given a list to pick from. After picking the list it will start playing.
+<dl>
+  <dt>Video</dt>
+  <dd>This is a simple search  that will make a playlist of what ever keyword you're searching for.</dd>
+  <br />
+  <dt>My Subscriptions</dt>
+  <dd>The bread and butter of AutoTube. <b>My Subscriptions</b> will create a playlist of all of your subscriptions newest videos in a matter of seconds.
+  Currently it get's the 3 latest videos from your subscriptions</dd>
+  <br />
+  <dt>Channel</dt>
+  <dd>Search for a channels username and you will be given a list to pick from. After picking the list it will make a playlist from the channel taking into account of any other filters you have.</dd>
+  <br />
+  <dt>Playlist</dt>
+  <dd>Search for a playlists by keyword and you will be given a list to pick from. After picking the list it will start playing.</dd>
+  <br />
+</dl>
 
 ### Sort By
 
-#### Relevance
-- Resources are sorted based on their relevance to the search query.
 
-#### Rating
-- Resources are sorted in reverse chronological order based on the date they were created.
-
-#### Title
-- Resources are sorted alphabetically by title.
-
-#### View Count
-- Resources are sorted from highest to lowest number of views.
-
-#### Channel Video Count
-- Only works with Channels. Channels are sorted in descending order of their number of uploaded videos.
+<dl>
+  <dt>Relevance</dt>
+  <dd>Resources are sorted based on their relevance to the search query.</dd>
+  <br />
+  <dt>Rating</dt>
+  <dd>Resources are sorted in reverse chronological order based on the date they were created.</dd>
+  <br />
+  <dt>Title</dt>
+  <dd>Resources are sorted alphabetically by title.</dd>
+  <br />
+  <dt>View Count</dt>
+  <dd>Resources are sorted from highest to lowest number of views.</dd>
+  <br />
+  <dt>Channel Video Count</dt>
+  <dd>Only works with Channels. Channels are sorted in descending order of their number of uploaded videos.</dd>
+  <br />
+</dl>
 
 ### Max Results
-- Determines how many videos you would like to retrieve.
-This does not work for My Subscriptions.
+<dd>Determines how many videos you would like to retrieve.
+This does not work for My Subscriptions.</dd>
+
 
 ### Child Filter
-- Turning Child Filter on indicates will restrict the content that is returned.
+<dd>Turning Child Filter on indicates will restrict the content that is returned.</dd>
 
 
 ## Developers only: Getting Api Key and Client Id
