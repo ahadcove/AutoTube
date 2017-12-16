@@ -102,7 +102,7 @@ export default {
     }
 
     .hamburger-contain:hover *{
-        background-color: var(--highlightDark);
+        background-color: var(--whiteDark);
     }
 
     .router-link-active{

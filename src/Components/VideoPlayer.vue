@@ -172,6 +172,7 @@ export default {
     .video-button{
         background-color: transparent;
         font-size: 50px;
+        padding: 0;
         /* width: 20px;
         height: 20px; */
         /* height: 20px; */

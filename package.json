@@ -1,7 +1,7 @@
 {
   "name": "auto-tube",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
+  "version": "0.0.1",
+  "description": "AutoTube is the all in one youtube player that you never knew you needed. Made with Vue",
   "author": "Bilal Abdullah",
   "private": true,
   "scripts": {

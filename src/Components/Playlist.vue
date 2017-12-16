@@ -5,19 +5,21 @@
         </div>
         <!-- <div class="center"> -->
             <ul class="NextVideoContain">
-                <li class="NextVideo" v-for="(video, index) in videos" :key="video.etag" :current="index === vidNum">
-                    <span class="index" @click="changeVideo(index)">{{index === vidNum ? "▶" : index+1}}</span>
-                    <div class="thumbnail-container" @click="changeVideo(index)">
-                        <img class="thumbnail" :src="video.snippet.thumbnails.default.url" />
-                    </div>
-                    <div class="meta-contain" @click="changeVideo(index)">
-                        <span class="meta-title">{{video.snippet.title}}</span>
-                        <!-- <span @click="clickedAuthor(video.snippet.channelId)" class="meta-author">{{video.snippet.channelTitle}}</span> -->
-                        <span class="meta-author">{{video.snippet.channelTitle}}</span>
-                    </div>
-                    <div class="remove-contain">
-                        <button class="remove-button" @click="removeVideo(index)">x</button>
-                    </div>
+                <li class="" v-for="(video, index) in videos" :key="video.etag" :current="index === vidNum">
+                    <button class="NextVideo div-button">
+                        <span class="index" @click="changeVideo(index)">{{index === vidNum ? "▶" : index+1}}</span>
+                        <div class="thumbnail-container" @click="changeVideo(index)">
+                            <img class="thumbnail" :src="video.snippet.thumbnails.default.url" />
+                        </div>
+                        <div class="meta-contain" @click="changeVideo(index)">
+                            <span class="meta-title">{{video.snippet.title}}</span>
+                            <!-- <span @click="clickedAuthor(video.snippet.channelId)" class="meta-author">{{video.snippet.channelTitle}}</span> -->
+                            <span class="meta-author">{{video.snippet.channelTitle}}</span>
+                        </div>
+                        <div class="remove-contain">
+                            <button class="remove-button" @click="removeVideo(index)">x</button>
+                        </div>
+                    </button>
                 </li>
             </ul>
         <!-- </div> -->
@@ -76,12 +78,13 @@ export default {
         max-width: 100%;
         /* max-height: 40vh; */
         max-height: 470px;
-        padding: 0;
+        /* padding: 0; */
+        padding: 2px 0px;
         overflow-y: scroll;
     }
     .NextVideo {
         background: var(--biDark);
-        transform: translate3d(0px, 0px, 0px);
+        /* transform: translate3d(0px, 0px, 0px); */
         cursor: pointer;
         width: 100%;
         /* height: 200px; */

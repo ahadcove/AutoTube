@@ -82,6 +82,7 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: transparent;
 }
 
 input{
@@ -102,9 +103,15 @@ button:hover{
 }
 
 .div-button:hover{
-    color: var(--highlightDark);
-    
+    color: var(--whiteDark);
+    background-color: inherit;
     /* background-color: var(--highlightDark); */
+}
+
+a:focus, button:focus, input:focus, .div-button:focus{ 
+    outline: thin dotted; 
+    /* outline: none; */
+    /* background-color: blue; */
 }
 
 button:focus{
@@ -146,7 +153,7 @@ a:visited {
 a:hover {
     text-decoration: none;
     /* text-decoration: underline; */
-    color: var(--highlightDark);
+    color: var(--whiteDark);
 }
 
 a:active {

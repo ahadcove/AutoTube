@@ -1,12 +1,12 @@
 <template>
     <footer id="footer-contain">
-        <div class="footer-author div-button" @click="openAuthor" title="Author Portfolio">
+        <button class="footer-author div-button" @click="openAuthor" title="Author Portfolio">
             © 2017 Bilal Abdullah
-        </div>
+        </button>
         <div class="footer-links">
-            <div class="footer-link div-button" @click="openGithub">
+            <button class="footer-link div-button" @click="openGithub">
                 <icon class="github" name="github" title="Open in github"></icon>
-            </div>
+            </button>
         </div>
     </footer>
 </template>
