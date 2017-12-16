@@ -33,54 +33,54 @@ export default new Vuex.Store({
         addToken(state, payload) {
             state.token = payload.token;
         },
-        NEXT_VIDEO(state){
+        NEXT_VIDEO(state) {
             if (state.vidNum < state.videos.length - 1) {
                 state.vidNum++;
             }
             else EventBus.$emit('error-show', 'Reached end of list');
         },
-        PREVIOUS_VIDEO(state){
+        PREVIOUS_VIDEO(state) {
             if (state.vidNum > 0 && state.videos.length > 0)
                 state.vidNum--;
             else EventBus.$emit('error-show', 'At the beginning of list');
         },
-        LOADING_OFF(state){
+        LOADING_OFF(state) {
             state.loading = false;
         },
-        LOADING_ON(state){
+        LOADING_ON(state) {
             state.loading = true;
         },
-        UPDATE_VID_NUM(state, value){
+        UPDATE_VID_NUM(state, value) {
             state.vidNum = value;
         },
-        UPDATE_VIDEO_LIST(state, value){
+        UPDATE_VIDEO_LIST(state, value) {
             state.videos = value;
             state.vidNum = 0;
             state.playlists = [];
             state.channels = [];
             state.loading = false;
         },
-        UPDATE_CHANNELS(state, value){
+        UPDATE_CHANNELS(state, value) {
             state.channels = value;
             state.loading = false;
         },
-        UPDATE_PLAYLISTS(state, value){
+        UPDATE_PLAYLISTS(state, value) {
             state.playlists = value;
             state.loading = false;
         },
-        UPDATE_FILTER_SAFE(state, value){
+        UPDATE_FILTER_SAFE(state, value) {
             state.filterSafe = value
         },
-        UPDATE_TYPE(state, value){
+        UPDATE_TYPE(state, value) {
             state.type = value
         },
-        UPDATE_FILTER_SORT(state, value){
+        UPDATE_FILTER_SORT(state, value) {
             state.filterSort = value
         },
-        UPDATE_MAX_RESULTS(state, value){
+        UPDATE_MAX_RESULTS(state, value) {
             state.maxResults = value
         },
-        REMOVE_VIDEO(state, value){
+        REMOVE_VIDEO(state, value) {
             state.videos.splice(value, 1);
         },
         increment(state) {

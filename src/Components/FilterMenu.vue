@@ -116,130 +116,126 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
-    name: 'Filter',
-    data () {
-        return {
-            // filterSort: "relevance",
-            // filterSafe: "moderate", // Moderate or strict
-            // filterDate: null,
-            // filterDuration: null,
-        }
-    },
-    methods: {
-         toggleSafeFilter(){
-            let tempFilterSafe = this.filterSafe === 'strict' ? 'moderate' : 'strict';
-            this.$store.commit('UPDATE_FILTER_SAFE', tempFilterSafe)
-        },
-    },
-    computed: {
-        ...mapState({ filterSort: "filterSort", filterSafe: "filterSafe", filterDate: "filterDate", filterDuration: "filterDuration" }),
-        type: {
-            get(){
-                return this.$store.state.type;
-            },
-            set(value){
-                this.$store.commit('UPDATE_TYPE', value);
-            }
-        },
-        filterSort: {
-            get(){
-                return this.$store.state.filterSort;
-            },
-            set(value){
-                this.$store.commit('UPDATE_FILTER_SORT', value);
-            }
-        },
-        maxResults: {
-            get(){
-                return this.$store.state.maxResults;
-            },
-            set(value){
-                this.$store.commit('UPDATE_MAX_RESULTS', value);
-            }
-        },
-        filterDateDisabled(){
-            if(this.type !== "video"){
-                return true;
-            }
-            return false;
-        },
-        filterSortDisabled(){
-            if(this.type === "playlist"){
-                return true;
-            }
-
-            return false;
-        },
-        filterSafeDisabled(){
-            if(this.type === "playlist"){
-                return true;
-            }
-
-            return false;
-        },
-        maxResultsDisabled(){
-            if(this.type === "my"){
-                return true;
-            }
-            return false;
-        }
+  name: "Filter",
+  data() {
+    return {};
+  },
+  methods: {
+    toggleSafeFilter() {
+      let tempFilterSafe = this.filterSafe === "strict" ? "moderate" : "strict";
+      this.$store.commit("UPDATE_FILTER_SAFE", tempFilterSafe);
     }
-}
+  },
+  computed: {
+    ...mapState({
+      filterSort: "filterSort",
+      filterSafe: "filterSafe",
+      filterDate: "filterDate",
+      filterDuration: "filterDuration"
+    }),
+    type: {
+      get() {
+        return this.$store.state.type;
+      },
+      set(value) {
+        this.$store.commit("UPDATE_TYPE", value);
+      }
+    },
+    filterSort: {
+      get() {
+        return this.$store.state.filterSort;
+      },
+      set(value) {
+        this.$store.commit("UPDATE_FILTER_SORT", value);
+      }
+    },
+    maxResults: {
+      get() {
+        return this.$store.state.maxResults;
+      },
+      set(value) {
+        this.$store.commit("UPDATE_MAX_RESULTS", value);
+      }
+    },
+    filterDateDisabled() {
+      if (this.type !== "video") {
+        return true;
+      }
+      return false;
+    },
+    filterSortDisabled() {
+      if (this.type === "playlist") {
+        return true;
+      }
+
+      return false;
+    },
+    filterSafeDisabled() {
+      if (this.type === "playlist") {
+        return true;
+      }
+
+      return false;
+    },
+    maxResultsDisabled() {
+      if (this.type === "my") {
+        return true;
+      }
+      return false;
+    }
+  }
+};
 </script>
 
 <style scoped>
-    #filter-contain{
-        z-index: 1;
-        padding: 40px 2px 20px 2px;
-        background-color: var(--navDark);
-        position: fixed;
-        width: 100%;
-        margin: auto;
-        /* margin-top: 24px; */
-        left: 0;
-        top: 0;
-        /* transform-origin: 50% 50%;
-        transform: translate3d(0, -400px, 0) rotate(0); */
-    }
+#filter-contain {
+  z-index: 1;
+  padding: 40px 2px 20px 2px;
+  background-color: var(--navDark);
+  position: fixed;
+  width: 100%;
+  margin: auto;
+  left: 0;
+  top: 0;
+}
 
-    .filter-header{
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-top: 10px;
-        margin-bottom: 5px;
-    }
+.filter-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
 
-    .filter-row{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .RadioContain{
-        margin-top: 15px;
-    }
+.RadioContain {
+  margin-top: 15px;
+}
 
-    .filter-safe-button{
-        margin-top: 10px;
-    }
+.filter-safe-button {
+  margin-top: 10px;
+}
 
-    .filter-safe-button[on=true]{
-        background-color: var(--white);
-    }
+.filter-safe-button[on="true"] {
+  background-color: var(--white);
+}
 
-    .filter-safe-button[on=true]:hover{
-        background-color: var(--triDark);
-    }
+.filter-safe-button[on="true"]:hover {
+  background-color: var(--triDark);
+}
 
-    input[type=radio]{
-        margin-left: 10px;
-    }
+input[type="radio"] {
+  margin-left: 10px;
+}
 
-    input[type=range]{
-        margin-right: 5px;
-    }
-
+input[type="range"] {
+  margin-right: 5px;
+}
 </style>

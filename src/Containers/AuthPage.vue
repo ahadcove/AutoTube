@@ -6,44 +6,44 @@
 </template>
 
 <script>
-import {EventBus} from '../main';
-import '../globals.js';
+import { EventBus } from "../main";
+import "../globals.js";
 
 export default {
-    name: 'Auth',
-    data () {
-        return {
-            token: '',
-        }
-    },
-    methods: {
-        authenticate(provider){
-                this.$auth.authenticate(provider).then((res) => {
-                    console.log("Authenticated", res);
-                    this.token = res.access_token;
-                    this.$store.commit('addToken', {token: res.access_token});
-                    this.$ls.set('token', res.access_token);
-                    this.$router.push('/');
-                })
-            },
-        },
-        beforeMount(){
-            if(this.$ls.get('token')){
-                console.log("Has Token");
-            } else {
-                console.log("Does not have token");
-            }
-        }
-}
+  name: "Auth",
+  data() {
+    return {
+      token: ""
+    };
+  },
+  methods: {
+    authenticate(provider) {
+      this.$auth.authenticate(provider).then(res => {
+        console.log("Authenticated", res);
+        this.token = res.access_token;
+        this.$store.commit("addToken", { token: res.access_token });
+        this.$ls.set("token", res.access_token);
+        this.$router.push("/");
+      });
+    }
+  },
+  beforeMount() {
+    if (this.$ls.get("token")) {
+      console.log("Has Token");
+    } else {
+      console.log("Does not have token");
+    }
+  }
+};
 </script>
 
 <style scoped>
-    #auth-page{
-        margin-top: 40px;
-        min-height: calc(100vh - 260px);
-    }
+#auth-page {
+  margin-top: 40px;
+  min-height: calc(100vh - 260px);
+}
 
-    button{
-        margin-top: 60px;
-    }
+button {
+  margin-top: 60px;
+}
 </style>

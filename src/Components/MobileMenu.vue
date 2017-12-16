@@ -28,84 +28,84 @@
 </template>
 
 <script>
-import {EventBus} from '../main';
+import { EventBus } from "../main";
 
 export default {
-    name: 'MobileMenu',
-    data () {
-        return {
-            searchOpen: false,
-            menuOpen: false,
-            filterOpen: false,
-        }
+  name: "MobileMenu",
+  data() {
+    return {
+      searchOpen: false,
+      menuOpen: false,
+      filterOpen: false
+    };
+  },
+  mounted() {
+    EventBus.$on("toggle-search", value => {
+      this.menuOpen = false;
+      this.filterOpen = false;
+      if (value !== undefined) {
+        this.searchOpen = value;
+      } else this.searchOpen = !this.searchOpen;
+    });
+    EventBus.$on("toggle-menu", value => {
+      this.searchOpen = false;
+      if (value !== undefined) {
+        this.menuOpen = value;
+      } else this.menuOpen = !this.menuOpen;
+    });
+    EventBus.$on("toggle-filter", value => {
+      if (value !== undefined) {
+        this.filterOpen = value;
+      } else this.filterOpen = !this.filterOpen;
+    });
+  },
+  methods: {
+    closeSearch() {
+      console.log("Closing Search");
+      EventBus.$emit("toggle-filter", false);
+      this.searchOpen = false;
     },
-    mounted(){
-        EventBus.$on('toggle-search', (value) => {
-            this.menuOpen = false;
-            this.filterOpen = false;
-            if (value !== undefined) {
-                this.searchOpen = value;
-            } else this.searchOpen = !this.searchOpen;
-        });
-        EventBus.$on('toggle-menu', (value) => {
-            this.searchOpen = false;
-            if (value !== undefined) {
-                this.menuOpen = value;
-            } else this.menuOpen = !this.menuOpen;
-        });
-        EventBus.$on('toggle-filter', (value) => {
-            if (value !== undefined) {
-                this.filterOpen = value;
-            } else this.filterOpen = !this.filterOpen;
-        });
-    },
-    methods: {
-        closeSearch(){
-            console.log("Closing Search");
-            EventBus.$emit('toggle-filter', false);
-            this.searchOpen = false;
-        },
-        closeMenu(){
-            console.log("Closing Menu");
-            this.menuOpen = false;
-        },
+    closeMenu() {
+      console.log("Closing Menu");
+      this.menuOpen = false;
     }
-}
+  }
+};
 </script>
 
 <style scoped>
-    #mobile-contain{
-    }
+#mobile-contain {
+}
 
-    #mobile-search-contain{
-        z-index: 50;
-        background-color: var(--biDark);
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
+#mobile-search-contain {
+  z-index: 50;
+  background-color: var(--biDark);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 
-    #mobile-menu-contain{
-        z-index: 50;
-        background-color: var(--biDark);
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+#mobile-menu-contain {
+  z-index: 50;
+  background-color: var(--biDark);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .nav-links{
-        margin-right: 10px;
-    }
+.nav-links {
+  margin-right: 10px;
+}
 
-    .router-link-active{
-        color: var(--white);
-    }
+.router-link-active {
+  color: var(--white);
+}
 </style>
