@@ -1,7 +1,7 @@
 {
   "name": "auto-tube",
   "version": "0.0.1",
-  "description": "AutoTube is the all in one youtube player that you never knew you needed. Made with Vue",
+  "description": "AutoTube is the all in one youtube player that you never knew you needed. Made with Vue. auto-tube.com",
   "author": "Bilal Abdullah",
   "private": true,
   "scripts": {
@@ -16,7 +16,6 @@
     "vue-authenticate": "^1.3.4",
     "vue-awesome": "^2.3.4",
     "vue-axios": "^2.0.2",
-    "vue-ls": "^2.3.3",
     "vue-router": "^3.0.1",
     "vue-youtube-embed": "^2.1.3",
     "vuex": "^3.0.1",

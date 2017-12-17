@@ -22,16 +22,8 @@ export default {
         console.log("Authenticated", res);
         this.token = res.access_token;
         this.$store.commit("addToken", { token: res.access_token });
-        this.$ls.set("token", res.access_token);
         this.$router.push("/");
       });
-    }
-  },
-  beforeMount() {
-    if (this.$ls.get("token")) {
-      console.log("Has Token");
-    } else {
-      console.log("Does not have token");
     }
   }
 };

@@ -5,7 +5,12 @@
         </button>
         <div class="footer-links">
             <button class="footer-link div-button" @click="openGithub">
-                <icon class="github" name="github" title="Open in github"></icon>
+                <icon class="foot-icon" name="github" title="Open in github"></icon>
+                <span class="foot-info">View on Github</span>
+            </button>
+            <button class="footer-link div-button" @click="openDonate">
+                <icon class="foot-icon" name="paypal" title="Donate"></icon>
+                <span class="foot-info">Donate</span>
             </button>
         </div>
     </footer>
@@ -23,6 +28,10 @@ export default {
     },
     openGithub() {
       window.open("https://github.com/AhadCove/AutoTube");
+    },
+    openDonate(){
+      console.log("Donate");
+      window.open("https://paypal.me/ahadcove");
     }
   }
 };
@@ -52,8 +61,21 @@ export default {
   align-items: center;
 }
 
-.github {
+.footer-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.foot-icon {
   width: auto;
   height: 1.6rem;
 }
+
+.foot-info{
+
+}
+
 </style>

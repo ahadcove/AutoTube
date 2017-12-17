@@ -1,29 +1,22 @@
 # AutoTube - The Missing Youtube Player
 
 <p align="center">
-  <!-- <a href="https://autotube.com" target="_blank"> -->
-    <img src="static/AutoTube-Logo.png" alt="AutoTube Logo" width="55%"/>
-  </a>
+    <a href="https://auto-tube.com" target="_blank">
+      <img src="static/AutoTube-Logo.png" alt="AutoTube Logo" width="55%"/>
+    </a>
 </p>
-
-<!-- ![alt text](static/AutoTube-Logo-Big.png "AutoTube") -->
 
 AutoTube is the all in one youtube player that you never knew you needed, developed by [Bilal Abdullah](https://bilalabdullah.me).
 
 Ever wondered why youtube hasn't implemented certain features like being able to make a playlist of your subscriptions newest videos in a click of a button? Me too, that's why I created AutoTube. Spend less time making playlists and more on your work!
 
+## [Live-Site](https://auto-tube.com)
+
 <p align="center">
+  <a href="https://auto-tube.com" target="_blank">
     <img src="static/screenshots/shot1.png" alt="AutoTube Screenshot 1" width="90%"/>
   </a>
 </p>
-
-
-<!-- <p align="center">
-  <a href="http://echoesplayer.com" target="_blank">
-    <img src="https://user-images.githubusercontent.com/878660/30917366-7ffe7ba2-a3a4-11e7-89ab-e85f4b761bcb.png" alt="Webpack, Angular, ngrx, bootstrap" width="75%"/>
-  </a>
-</p> -->
-
 
 ## Why AutoTube?
 If you're like me, you always have something playing in the background while programming.
@@ -33,11 +26,17 @@ This may sound familiar to you. A typical workday consist of pulling out the com
 I can testify that this takes a lot of time. This is where **AutoTube** steps in. Simply pulling down filter and clicking My Subscriptions will retrieve all of your subscriptions and getting the latest videos from each and making a playlist that starts playing automatically.
 Leave it in the background and start your work day in a matter of seconds.
 
+## Youtube almost ad free
+There's nothing worse than getting on youtube and starting your videos and running into ads on literally every single video.
+Listening to that same one ad and having to navigate back to the page to skip it is infuriating.
+Using AutoTube will get rid of almost all of the ads that you would normally face. There are some videos that will bypass this and still display an ad, but it's only a few.
+
 ## Features
 
 <p align="center">
-    <img src="static/screenshots/shot2.png" alt="AutoTube" width="75%"/>
-  </a>
+    <a href="https://auto-tube.com" target="_blank">
+      <img src="static/screenshots/shot2.png" alt="AutoTube" width="75%"/>
+    </a>
 </p>
 
 Open up **Filter** and you will be given a list of options to choose from:
@@ -107,3 +106,11 @@ yarn run build
 # build for production and view the bundle analyzer report
 yarn run build --report
 ```
+
+## Would you like to donate?
+The goal of AutoTube was to remove any distractions, to maximize production and get on with your day.
+In order to do this, any type of ads have been removed and any need to signup on the app etc.
+The first page that comes to you starts playing a video immediately.
+This comes at a cost though. Hosting on a server and using Youtube's Api cost money after so many users.
+If you tend to use this app as your primary source of video watching and would like to help further the development of this app, donations would definitely help.
+It would be greatly appreciated if you could donate to my [paypal.me](https://paypal.me/AhadCove)

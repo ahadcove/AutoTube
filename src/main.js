@@ -4,7 +4,6 @@ import router from './router'
 import Vuex from 'vuex'
 import VueAuthenticate from 'vue-authenticate'
 import VueYouTubeEmbed from 'vue-youtube-embed'
-import VueLocalStorage from 'vue-ls';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import NavBar from './Components/NavBar.vue';
@@ -40,7 +39,6 @@ Vue.use(VueAuthenticate, {
 })
 Vue.use(Vuex);
 Vue.use(VueYouTubeEmbed);
-Vue.use(VueLocalStorage);
 
 Vue.component('NavBar', NavBar);
 Vue.component('MobileMenu', MobileMenu);
