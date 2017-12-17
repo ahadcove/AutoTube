@@ -141,7 +141,7 @@ export default {
     }),
     maxLimit() {
       if(this.type == 'my'){
-        return "5";
+        return "10";
       }
 
       return "50";

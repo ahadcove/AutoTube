@@ -179,7 +179,7 @@ export default {
           .get(
             `${global.YOUTUBE_ROOT}/search?part=snippet&channelId=${data[index]
               .snippet.resourceId
-              .channelId}&maxResults=5&type=video&order=date&safeSearch=${this
+              .channelId}&maxResults=${this.maxResults}&type=video&order=date&safeSearch=${this
               .filterSafe}&key=${global.API_KEY}`
           )
           .then(res => {
@@ -327,10 +327,13 @@ export default {
 
 .searching-button {
   cursor: progress;
+  color: var(--highlighDark);
+  background-color: var(--activeDark);
 }
 
 .searching-button:hover {
   color: inherit;
+
 }
 
 /* Mobile */

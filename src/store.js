@@ -5,12 +5,23 @@ import { EventBus } from './main';
 
 Vue.use(Vuex)
 
+const blackList = ["LOADING_ON", "LOADING_OFF", "UPDATE_MAX_RESULTS", "UPDATE_FILTER_SAFE",
+"UPDATE_TYPE", "UPDATE_FILTER_SORT"];
+
 export default new Vuex.Store({
-    plugins: [createPersistedState()],
+    plugins: [createPersistedState({
+        filter: (mutation)=>{
+            console.log("Filter", mutation);
+            // 
+            let keep = (blackList.indexOf(mutation.type) == -1 ? true : false);
+            console.log("Keep", mutation.type, keep)
+            return keep;
+        }
+    })],
     state: {
         loading: false,
         token: "",
-        type: 'video', // Search Type
+        type: 'video',
         maxResults: 20,
         vidNum: 0,
         videos: [
@@ -32,7 +43,7 @@ export default new Vuex.Store({
         token: state => state.token
     },
     mutations: {
-        addToken(state, payload) {
+        ADD_TOKEN(state, payload) {
             state.token = payload.token;
         },
         NEXT_VIDEO(state) {
@@ -84,9 +95,6 @@ export default new Vuex.Store({
         },
         REMOVE_VIDEO(state, value) {
             state.videos.splice(value, 1);
-        },
-        increment(state) {
-            state.count++
         }
     }
 })
