@@ -1,10 +1,21 @@
 # AutoTube - The Missing Youtube Player
+
+<p align="center">
+  <!-- <a href="https://autotube.com" target="_blank"> -->
+    <img src="static/AutoTube-Logo.png" alt="AutoTube Logo" width="55%"/>
+  </a>
+</p>
+
+<!-- ![alt text](static/AutoTube-Logo-Big.png "AutoTube") -->
+
 AutoTube is the all in one youtube player that you never knew you needed, developed by [Bilal Abdullah](https://bilalabdullah.me).
 
 Ever wondered why youtube hasn't implemented certain features like being able to make a playlist of your subscriptions newest videos in a click of a button? Me too, that's why I created AutoTube. Spend less time making playlists and more on your work!
 
-
-![alt text](static/screenshots/shot1.png "AutoTube")
+<p align="center">
+    <img src="static/screenshots/shot1.png" alt="AutoTube Screenshot 1" width="90%"/>
+  </a>
+</p>
 
 
 <!-- <p align="center">
@@ -23,55 +34,57 @@ I can testify that this takes a lot of time. This is where **AutoTube** steps in
 Leave it in the background and start your work day in a matter of seconds.
 
 ## Features
-![alt text](static/screenshots/shot2.png "AutoTube")
+
+<p align="center">
+    <img src="static/screenshots/shot2.png" alt="AutoTube" width="75%"/>
+  </a>
+</p>
 
 Open up **Filter** and you will be given a list of options to choose from:
 
 ### Search Type
 
 <dl>
-  <dt>Video</dt>
+  <dt>Video:</dt>
   <dd>This is a simple search  that will make a playlist of what ever keyword you're searching for.</dd>
   <br />
-  <dt>My Subscriptions</dt>
+  <dt>My Subscriptions:</dt>
   <dd>The bread and butter of AutoTube. <b>My Subscriptions</b> will create a playlist of all of your subscriptions newest videos in a matter of seconds.
   Currently it get's the 3 latest videos from your subscriptions</dd>
   <br />
-  <dt>Channel</dt>
+  <dt>Channel:</dt>
   <dd>Search for a channels username and you will be given a list to pick from. After picking the list it will make a playlist from the channel taking into account of any other filters you have.</dd>
   <br />
-  <dt>Playlist</dt>
+  <dt>Playlist:</dt>
   <dd>Search for a playlists by keyword and you will be given a list to pick from. After picking the list it will start playing.</dd>
   <br />
 </dl>
 
 ### Sort By
-
-
 <dl>
-  <dt>Relevance</dt>
+  <dt>Relevance:</dt>
   <dd>Resources are sorted based on their relevance to the search query.</dd>
   <br />
-  <dt>Rating</dt>
+  <dt>Rating:</dt>
   <dd>Resources are sorted in reverse chronological order based on the date they were created.</dd>
   <br />
-  <dt>Title</dt>
+  <dt>Title:</dt>
   <dd>Resources are sorted alphabetically by title.</dd>
   <br />
-  <dt>View Count</dt>
+  <dt>View Count:</dt>
   <dd>Resources are sorted from highest to lowest number of views.</dd>
   <br />
-  <dt>Channel Video Count</dt>
+  <dt>Channel Video Count:</dt>
   <dd>Only works with Channels. Channels are sorted in descending order of their number of uploaded videos.</dd>
   <br />
 </dl>
 
-### Max Results
+### Max Results:
 <dd>Determines how many videos you would like to retrieve.
 This does not work for My Subscriptions.</dd>
 
 
-### Child Filter
+### Child Filter:
 <dd>Turning Child Filter on indicates will restrict the content that is returned.</dd>
 
 
