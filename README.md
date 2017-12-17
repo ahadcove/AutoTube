@@ -80,7 +80,7 @@ Open up **Filter** and you will be given a list of options to choose from:
 
 ### Max Results:
 <dd>Determines how many videos you would like to retrieve.
-This does not work for My Subscriptions.</dd>
+For My Subscriptions it will only allow a maximum of 5 videos per channel.</dd>
 
 
 ### Child Filter:
