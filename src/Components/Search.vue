@@ -98,6 +98,11 @@ export default {
       this.searchQuery = "";
       let subscriptions;
 
+      // Make sure maxResults is less the 10, if not goto 5
+      if(this.maxResults > 10){
+          this.$store.commit("UPDATE_MAX_RESULTS", 5);
+      }
+
       const recursiveSubscription = (nextPage = null) => {
         if (!nextPage) {
           // First Page

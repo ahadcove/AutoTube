@@ -6,7 +6,7 @@
             <input type="radio" name="typeVideo" id="typeVideo" value="video" v-model="type" title="Search by keyword">
             <label for="typeVideo" title="Search by keyword">Video</label>
 
-            <input type="radio" name="typeMy" id="typeMy" value="my" v-model="type" title="Search new videos from subscriptions">
+            <input type="radio" name="typeMy" id="typeMy" value="my" v-model="type" @change="clickedMy" title="Search new videos from subscriptions">
             <label for="typeMy" title="Search new videos from subscriptions">My Subscriptions</label>
 
             <input type="radio" name="typeChannel" id="typeChannel" value="channel" v-model="type" title="Search by channel username">
@@ -105,7 +105,7 @@
         <div class="FilterExtra">
             <div class="filter-header">Max Results</div>
             <div class="filter-row">
-                <input type="range" min="1" max="50" step="1" v-model="maxResults" :disabled="maxResultsDisabled">
+                <input type="range" min="1" :max="maxLimit" step="1" v-model="maxResults" :disabled="maxResultsDisabled">
                 <span>{{maxResults}}</span>
             </div>
             <div class="filter-row">
@@ -127,6 +127,9 @@ export default {
     toggleSafeFilter() {
       let tempFilterSafe = this.filterSafe === "strict" ? "moderate" : "strict";
       this.$store.commit("UPDATE_FILTER_SAFE", tempFilterSafe);
+    },
+    clickedMy(){
+      this.$store.commit("UPDATE_MAX_RESULTS", 3);
     }
   },
   computed: {
@@ -136,6 +139,13 @@ export default {
       filterDate: "filterDate",
       filterDuration: "filterDuration"
     }),
+    maxLimit() {
+      if(this.type == 'my'){
+        return "5";
+      }
+
+      return "50";
+    },
     type: {
       get() {
         return this.$store.state.type;
@@ -182,7 +192,7 @@ export default {
     },
     maxResultsDisabled() {
       if (this.type === "my") {
-        return true;
+        // return true;
       }
       return false;
     }

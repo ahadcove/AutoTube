@@ -83,7 +83,7 @@ button {
 
 input {
   color: var(--triDark);
-  padding: 10px 15px;
+  /* padding: 10px 15px; */
   background-color: var(--dark);
   border: solid var(--compDark) 0.6px;
 }
