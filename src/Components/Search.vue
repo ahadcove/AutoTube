@@ -51,8 +51,8 @@ export default {
             this.searchMySubscriptions(this.searchQuery);
           } else {
             this.$store.commit("LOADING_OFF");
-            alert("Must be logged in to use this option");
             this.emitError("Must be logged in to use this option");
+            this.$router.push("Auth");
           }
           break;
         case "channel":
@@ -128,13 +128,12 @@ export default {
                   this.emitError(
                     "Sign in expired. Need to re authenticate before getting subscriptions"
                   );
-                  this.$router.push("Auth");
                 } else {
                   this.emitError(
                     "Need to authenticate before getting subscriptions"
                   );
-                  this.$router.push("Auth");
                 }
+                  this.$router.push("Auth");
               }
             });
         } else {
@@ -204,7 +203,7 @@ export default {
         recurseMassage();
       } else {
         this.$store.commit("LOADING_OFF");
-        alert("You have no subscriptions");
+        this.emitError("You have no subscriptions");
       }
     },
     // Search channels by username

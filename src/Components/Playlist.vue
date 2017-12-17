@@ -121,6 +121,7 @@ export default {
 }
 
 .index {
+  width: 12px;
   color: var(--triDark);
   text-align: left;
   padding: 0 11px;
