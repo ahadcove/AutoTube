@@ -26,12 +26,14 @@ Vue.use(StorePlugin);
 
 Vue.use(VueAxios, axios)
 Vue.use(VueAuthenticate, {
-  baseUrl: 'http://localhost:8080', // Your API domain
+  // baseUrl: 'http://localhost:8080', // Your API domain
+  baseUrl: `${process.env.HOST}`, // Your API domain
 
   providers: {
     google: {
       clientId: global.CLIENT_ID,
-      redirectUri: 'http://localhost:8080/auth', // Your client app URL
+      redirectUri: `${process.env.HOST}/auth`, // Your client app URL
+      // redirectUri: `localhost:8080/auth`, // Your client app URL
       responseType: 'token',
       scope: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.force-ssl', 'https://www.googleapis.com/auth/youtube.readonly',],
     }
