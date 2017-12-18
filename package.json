@@ -19,7 +19,7 @@
     "vue-router": "^3.0.1",
     "vue-youtube-embed": "^2.1.3",
     "vuex": "^3.0.1",
-    "vuex-persistedstate": "^2.4.2"
+    "vuex-persistedstate": "https://github.com/AhadCove/vuex-persistedstate.git"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

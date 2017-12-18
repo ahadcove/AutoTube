@@ -5,18 +5,12 @@ import { EventBus } from './main';
 
 Vue.use(Vuex)
 
-const blackList = ["LOADING_ON", "LOADING_OFF", "UPDATE_MAX_RESULTS", "UPDATE_FILTER_SAFE",
+const blacklist = ["LOADING_ON", "LOADING_OFF", "UPDATE_MAX_RESULTS", "UPDATE_FILTER_SAFE",
 "UPDATE_TYPE", "UPDATE_FILTER_SORT"];
 
 export default new Vuex.Store({
     plugins: [createPersistedState({
-        filter: (mutation)=>{
-            console.log("Filter", mutation);
-            // 
-            let keep = (blackList.indexOf(mutation.type) == -1 ? true : false);
-            console.log("Keep", mutation.type, keep)
-            return keep;
-        }
+        blacklist
     })],
     state: {
         loading: false,

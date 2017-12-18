@@ -4976,9 +4976,9 @@ vue@^2.5.2:
   version "2.5.9"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.9.tgz#b2380cd040915dca69881dafd121d760952e65f7"
 
-vuex-persistedstate@^2.4.2:
+"vuex-persistedstate@https://github.com/AhadCove/vuex-persistedstate.git":
   version "2.4.2"
-  resolved "https://registry.yarnpkg.com/vuex-persistedstate/-/vuex-persistedstate-2.4.2.tgz#a8caf63b07ce4bdff6d82b29634c051ead382bf3"
+  resolved "https://github.com/AhadCove/vuex-persistedstate.git#c2f0ce3de7d39c4de0c9ca2e75384bb24ff88b78"
   dependencies:
     deepmerge "^2.0.1"
     shvl "^1.1.1"
