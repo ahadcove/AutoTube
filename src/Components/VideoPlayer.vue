@@ -4,7 +4,7 @@
         <section class="VideoBox">
             <button class="video-button" @click="previous">«</button>
             <section>
-                <youtube :video-id="video.id.videoId" :player-width="playerWidth" :player-height="playerHeight" :mute="false" @ready="ready" @playing="playing" @ended="ended" @paused="paused" @error="error" :player-vars="{autoplay: 1}"></youtube>
+                <youtube :video-id="video.id.videoId" :player-width="playerWidth" :player-height="playerHeight" :mute="false" @ready="ready" @playing="playing" @ended="ended" @paused="paused" @error="error" :player-vars="{ autoplay: 1, frameborder: 0, controls: 1, color: 'white', modestbranding: 1, showinfo: 0, rel: 0 }"></youtube>
             </section>
             <button class="video-button" @click="next">»</button>
         </section>
