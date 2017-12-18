@@ -38,7 +38,10 @@ export default {
 
       this.$store.commit("LOADING_ON");
       EventBus.$emit("toggle-filter", false);
-      EventBus.$emit("toggle-search", false);
+
+      // if(this.type !== "my"){
+      //   EventBus.$emit("toggle-search", false);
+      // }
 
       switch (this.type) {
         case "video":
@@ -70,6 +73,7 @@ export default {
     setVideos(videos) {
       this.$store.commit("UPDATE_VIDEO_LIST", videos);
       this.searchQuery = "";
+      EventBus.$emit("toggle-search", false);
       EventBus.$emit("toggle-filter", false);
     },
     // Search videos by keywords
