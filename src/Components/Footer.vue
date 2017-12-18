@@ -30,7 +30,6 @@ export default {
       window.open("https://github.com/AhadCove/AutoTube");
     },
     openDonate(){
-      console.log("Donate");
       window.open("https://paypal.me/ahadcove");
     }
   }

@@ -52,7 +52,6 @@ export default {
     setVideos(videos) {
       this.$store.commit("LOADING_OFF");
       this.$store.commit("UPDATE_VIDEO_LIST", videos);
-      console.log("Videos set", videos);
     },
     // Under channel-id you will need to pick which channel you want videos from
     pickChannel(channel) {
@@ -65,7 +64,6 @@ export default {
             .filterSafe}&key=${global.API_KEY}`
         )
         .then(res => {
-          console.log("Searched Res", res.data);
           this.setVideos(res.data.items);
         })
         .catch(err => {
@@ -84,9 +82,7 @@ export default {
             .maxResults}&key=${global.API_KEY}`
         )
         .then(res => {
-          console.log("Searched Res", res.data);
           let modifiedVideos = res.data.items.map((video, index) => {
-            console.log("Index", index);
             video.id = { id: video.id };
             video.id.videoId = video.snippet.resourceId.videoId;
             return video;

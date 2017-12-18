@@ -32,8 +32,6 @@ export default {
     },
     // Switch cases for search types
     search() {
-      console.log("Clicked Search", this.searchQuery, this.type);
-
       if (this.$route.name !== "PlayVideo") {
         this.$router.push("/");
       }
@@ -73,7 +71,6 @@ export default {
       this.$store.commit("UPDATE_VIDEO_LIST", videos);
       this.searchQuery = "";
       EventBus.$emit("toggle-filter", false);
-      console.log("Videos set", videos);
     },
     // Search videos by keywords
     searchVideos(query) {
@@ -84,11 +81,9 @@ export default {
             .filterSafe}&key=${global.API_KEY}`
         )
         .then(res => {
-          console.log("Searched Res", res.data);
           this.setVideos(res.data.items);
         })
         .catch(err => {
-          console.log("Error", err);
           this.$store.commit("LOADING_OFF");
           this.emitError("Error finding videos");
         });
@@ -112,16 +107,13 @@ export default {
                 .token}`
             )
             .then(res => {
-              console.log("Searched Res subscriptions", res.data);
               subscriptions = res.data.items;
               let hasNextPage = res.data.nextPageToken ? true : false;
 
               if (hasNextPage) {
-                console.log("Has next page");
                 let nextPage = res.data.nextPageToken;
                 recursiveSubscription(nextPage);
               } else {
-                console.log("End of page", subscriptions);
                 this.massageSubscriptions(subscriptions);
               }
             })
@@ -143,14 +135,12 @@ export default {
             });
         } else {
           // Next Pages
-          console.log("In Recurse");
           this.axios
             .get(
               `${global.YOUTUBE_ROOT}/subscriptions?part=snippet&mine=true&pageToken=${nextPage}&maxResults=50&key=${global.API_KEY}&access_token=${this
                 .token}`
             )
             .then(res => {
-              console.log("Recurse Searched Res subscriptions", res.data);
               subscriptions.push(...res.data.items);
               let hasNextPage = res.data.nextPageToken ? true : false;
               if (hasNextPage) {
@@ -171,7 +161,6 @@ export default {
     },
     // Go through every subscription and retrieve videos from them
     massageSubscriptions(data) {
-      console.log("Massaging subscriptions", data);
       let videos = [];
 
       const recurseMassage = (index = 0) => {
@@ -183,12 +172,10 @@ export default {
               .filterSafe}&key=${global.API_KEY}`
           )
           .then(res => {
-            console.log("Searched Res", index, res.data);
             videos.push(...res.data.items);
             if (index < data.length - 1) {
               recurseMassage(index + 1);
             } else {
-              console.log("Done Massaging", videos);
               videos.sort(function(a, b) {
                 return a.snippet.publishedAt < b.snippet.publishedAt
                   ? 1
@@ -220,7 +207,6 @@ export default {
             .filterSort}&maxResults=20&key=${global.API_KEY}`
         )
         .then(res => {
-          console.log("Searched Res subscriptions", res.data);
           this.$store.commit("LOADING_OFF");
           if (res.data.items.length > 0) {
             this.$store.commit("UPDATE_CHANNELS", res.data.items);
@@ -243,7 +229,6 @@ export default {
           `${global.YOUTUBE_ROOT}/search?part=snippet&type=playlist&q=${query}&maxResults=20&key=${global.API_KEY}`
         )
         .then(res => {
-          console.log("Searched Res playlists", res.data);
           this.$store.commit("LOADING_OFF");
           if (res.data.items.length > 0) {
             this.$store.commit("UPDATE_PLAYLISTS", res.data.items);

@@ -59,12 +59,10 @@ export default {
 
   methods: {
     openHamb() {
-      console.log("Opening Hamb");
       this.filterOpen = false;
       EventBus.$emit("toggle-menu");
     },
     openSearch() {
-      console.log("Opening Search");
       this.filterOpen = false;
       EventBus.$emit("toggle-search");
     }

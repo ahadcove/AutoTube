@@ -29,27 +29,21 @@ export default {
   methods: {
     ready(player) {
       this.player = player;
-      console.log("Ready");
     },
 
     // Goto next video either by click or by end of video
     next() {
-      console.log("Next video");
       this.$store.commit("NEXT_VIDEO");
     },
     // Goto previous video by click
     previous() {
-      console.log("Previous video");
       this.$store.commit("PREVIOUS_VIDEO");
     },
     playing() {
-      console.log("Playing");
     },
     paused() {
-      console.log("Paused");
     },
     ended() {
-      console.log("Ended");
       this.next();
     },
     error() {
@@ -58,22 +52,20 @@ export default {
       this.next();
     },
     stop() {
-      console.log("Stopped");
       this.player.stopVideo();
     },
     pause() {
-      console.log("Paused");
       this.player.pauseVideo();
     },
     getPlayerSize(type = undefined) {
-      console.log(
-        "type",
-        type,
-        "width",
-        window.screen.width,
-        "height",
-        window.screen.height
-      );
+      // console.log(
+      //   "type",
+      //   type,
+      //   "width",
+      //   window.screen.width,
+      //   "height",
+      //   window.screen.height
+      // );
 
       let width = window.screen.width;
       let height = window.screen.height;

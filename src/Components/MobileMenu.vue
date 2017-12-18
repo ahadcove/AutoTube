@@ -61,12 +61,10 @@ export default {
   },
   methods: {
     closeSearch() {
-      console.log("Closing Search");
       EventBus.$emit("toggle-filter", false);
       this.searchOpen = false;
     },
     closeMenu() {
-      console.log("Closing Menu");
       this.menuOpen = false;
     }
   }

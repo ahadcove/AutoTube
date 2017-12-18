@@ -19,7 +19,6 @@ export default {
   methods: {
     authenticate(provider) {
       this.$auth.authenticate(provider).then(res => {
-        console.log("Authenticated", res);
         this.token = res.access_token;
         this.$store.commit("ADD_TOKEN", { token: res.access_token });
         this.$router.push("/");

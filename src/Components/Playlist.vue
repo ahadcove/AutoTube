@@ -35,23 +35,18 @@ export default {
   },
   methods: {
     changeVideo(index) {
-      console.log("Clicked Video", index, this.videos[index]);
       this.$store.commit("UPDATE_VID_NUM", index);
     },
     removeVideo(index) {
-      console.log("Remove Video", index, this.videos[index]);
       this.$store.commit("REMOVE_VIDEO", index);
     },
     clickedAuthor(channelId) {
-      console.log("Clicked Author", channelId);
     },
     next() {
-      console.log("Next video");
       this.$store.commit("NEXT_VIDEO");
     },
     // Goto previous video by click
     previous() {
-      console.log("Previous video");
       this.$store.commit("PREVIOUS_VIDEO");
     }
   },
