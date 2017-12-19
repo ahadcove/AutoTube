@@ -32,7 +32,9 @@ Vue.use(VueAuthenticate, {
   providers: {
     google: {
       clientId: global.CLIENT_ID,
-      redirectUri: `${process.env.HOST}/auth`, // Your client app URL
+      clientSecret: global.CLIENT_SECRET,
+      // redirectUri: `${process.env.HOST}/auth`, // Your client app URL
+      redirectUri: window.location.origin, // Your client app URL
       // redirectUri: `localhost:8080/auth`, // Your client app URL
       responseType: 'token',
       scope: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.force-ssl', 'https://www.googleapis.com/auth/youtube.readonly',],
