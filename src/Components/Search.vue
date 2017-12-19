@@ -53,7 +53,7 @@ export default {
           } else {
             this.$store.commit("LOADING_OFF");
             this.emitError("Must be logged in to use this option");
-            this.$router.push("Auth");
+            this.$router.push("auth");
           }
           break;
         case "channel":
@@ -134,7 +134,7 @@ export default {
                     "Need to authenticate before getting subscriptions"
                   );
                 }
-                  this.$router.push("Auth");
+                  this.$router.push("auth");
               }
             });
         } else {
