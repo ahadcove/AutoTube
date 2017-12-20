@@ -206,9 +206,12 @@ export default {
     searchChannels(query) {
       this.searchQuery = "";
       this.axios
+        // .get(
+        //   `${global.YOUTUBE_ROOT}/search?part=snippet&type=channel&q=${query}&order=${this
+        //     .filterSort}&maxResults=20&key=${global.API_KEY}`
+        // )
         .get(
-          `${global.YOUTUBE_ROOT}/search?part=snippet&type=channel&q=${query}&order=${this
-            .filterSort}&maxResults=20&key=${global.API_KEY}`
+          `${global.YOUTUBE_ROOT}/search?part=snippet&type=channel&q=${query}&order=relevance&maxResults=20&key=${global.API_KEY}`
         )
         .then(res => {
           this.$store.commit("LOADING_OFF");
