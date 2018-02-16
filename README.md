@@ -114,3 +114,10 @@ The first page that comes to you starts playing a video immediately.
 This comes at a cost though. Hosting on a server and using Youtube's Api cost money after so many users.
 If you tend to use this app as your primary source of video watching and would like to help further the development of this app, donations would definitely help.
 It would be greatly appreciated if you could donate to my [paypal.me](https://paypal.me/AhadCove)
+
+
+Payment Completed Res {id: "PAY-04P78695DH2528458LJOTE3A", intent: "sale", state: "approved", cart: "0VU83183J8442434W", create_time: "2018-01-15T23:00:14Z", …}cart: "0VU83183J8442434W"create_time: "2018-01-15T23:00:14Z"id: "PAY-04P78695DH2528458LJOTE3A"intent: "sale"payer: payer_info: {email: "ahadtest@gmail.com", first_name: "Test", middle_name: "Test", last_name: "Ah", payer_id: "VXJG5T5HK6YXU", …}payment_method: "paypal"status: "VERIFIED"__proto__: Objectstate: "approved"transactions: [{…}]0: {invoice_number: "011417", amount: {…}, item_list: {…}, related_resources: Array(1)}amount: {total: "2.99", currency: "USD", details: {…}}invoice_number: "011417"item_list: {}__proto__: Objectrelated_resources: [{…}]__proto__: Objectlength: 1__proto__: Array(0)__proto__: Object
+
+
+
+Payment Authorized Res {paymentToken: "EC-0VU83183J8442434W", payerID: "VXJG5T5HK6YXU", paymentID: "PAY-04P78695DH2528458LJOTE3A", intent: "sale", returnUrl: "https://www.sandbox.paypal.com/?paymentId=PAY-04P7…&token=EC-0VU83183J8442434W&PayerID=VXJG5T5HK6YXU"}

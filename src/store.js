@@ -19,9 +19,9 @@ export default new Vuex.Store({
         maxResults: 20,
         vidNum: 0,
         videos: [
-            { snippet: { title: "Real life Coonstagram from South Park: Fractured but whole", channelTitle: "Ahad Cove", channelId: "UCoOP-JaaAIL - Dk_YmWFYNig", thumbnails: { default: { url: "https://i.ytimg.com/vi/nB_e76kl9no/default.jpg" } } }, id: { videoId: "nB_e76kl9no" }, etag: "7991kDR - QPaa9r0pePmDjBEa2h8 / F - CtGCe2Le4W3CMOfzHYwDxt9a8" },
+            { snippet: { title: "Lumia Twitch V1.0 - the clear bridge between your Phillips Hue, Twitch, and your viewers", channelTitle: "Lumia Cove", channelId: "UCJbwDiIYMayp69dJsisX6AA", thumbnails: { default: { url: "https://i.ytimg.com/vi/Gog3GsJEu4w/default.jpg" } } }, id: { videoId: "Gog3GsJEu4w" }, etag: "\"_gJQceDMxJ8gP-8T2HLXUoURK8c/8CGWc-1BxRCjUYLngs6a7SdD6SU\"" },
+            { snippet: { title: "Real life Coonstagram from South Park: Fractured but whole", channelTitle: "Ahad Cove", channelId: "UCoOP-JaaAIL-Dk_YmWFYNig", thumbnails: { default: { url: "https://i.ytimg.com/vi/nB_e76kl9no/default.jpg" } } }, id: { videoId: "nB_e76kl9no" }, etag: "7991kDR - QPaa9r0pePmDjBEa2h8 / F - CtGCe2Le4W3CMOfzHYwDxt9a8" },
             { snippet: { title: "QUIZZUMMAH TRAILER", channelTitle: "Ahad Cove", channelId: "UCoOP-JaaAIL-Dk_YmWFYNig", thumbnails: { default: { url: "https://i.ytimg.com/vi/8MlYcMbAQiE/default.jpg" } } }, id: { videoId: "8MlYcMbAQiE" }, etag: "7991kDR - QPaa9r0pePmDjBEa2h8 / tfmE2DTSyv5oytdwGekVVybjhQg" },
-            { snippet: { title: "Vue JS 2 Tutorial #1 - Introduction", channelTitle: "The Net Ninja", channelId: "UCW5YeuERMmlnqo4oq8vwUpg", thumbnails: { default: { url: "https://i.ytimg.com/vi/5LYrN_cAJoA/default.jpg" } } }, id: { videoId: "5LYrN_cAJoA" }, etag: "7991kDR - QPaa9r0pePmDjBEa2h8 / P2zBAYPBCgfyU6QGPrfZQnm3Nyc" },
         ],
         mySubscribers: [],
         playlists: [],
