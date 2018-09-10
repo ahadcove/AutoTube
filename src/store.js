@@ -15,6 +15,7 @@ export default new Vuex.Store({
     state: {
         loading: false,
         token: "",
+        refreshToken: "",
         type: 'video',
         maxResults: 20,
         vidNum: 0,
@@ -34,11 +35,13 @@ export default new Vuex.Store({
         filterDuration: null,
     },
     getters: {
-        token: state => state.token
+        token: state => state.token,
+        refreshToken: state => state.refreshToken,
     },
     mutations: {
         ADD_TOKEN(state, payload) {
             state.token = payload.token;
+            // state.refreshToken = payload.refreshToken;
         },
         NEXT_VIDEO(state) {
             if (state.vidNum < state.videos.length - 1) {

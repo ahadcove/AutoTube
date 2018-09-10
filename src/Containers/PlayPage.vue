@@ -61,7 +61,7 @@ export default {
         .get(
           `${global.YOUTUBE_ROOT}/search?part=snippet&channelId=${channel}&maxResults=${this
             .maxResults}&type=video&order=${this.filterSort}&safeSearch=${this
-            .filterSafe}&key=${global.API_KEY}`
+            .filterSafe}&key=${process.env.API_KEY}`
         )
         .then(res => {
           this.setVideos(res.data.items);
@@ -79,7 +79,7 @@ export default {
       this.axios
         .get(
           `${global.YOUTUBE_ROOT}/playlistItems?part=snippet&playlistId=${playlist}&maxResults=${this
-            .maxResults}&key=${global.API_KEY}`
+            .maxResults}&key=${process.env.API_KEY}`
         )
         .then(res => {
           let modifiedVideos = res.data.items.map((video, index) => {

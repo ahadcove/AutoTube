@@ -31,12 +31,14 @@ Vue.use(VueAuthenticate, {
 
   providers: {
     google: {
-      clientId: global.CLIENT_ID,
-      clientSecret: global.CLIENT_SECRET,
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
       // redirectUri: `${process.env.HOST}/auth`, // Your client app URL
       redirectUri: window.location.origin, // Your client app URL
       // redirectUri: `localhost:8080/auth`, // Your client app URL
       responseType: 'token',
+      accessType: 'offline',
+      oauthType: '2.0',
       scope: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.force-ssl', 'https://www.googleapis.com/auth/youtube.readonly',],
     }
   }

@@ -12,6 +12,7 @@
 <script>
 import { mapState } from "vuex";
 import { EventBus } from "../main";
+import { GET, POST } from '../Utilities/RequestHelper.js';
 
 export default {
   name: "Search",
@@ -78,11 +79,10 @@ export default {
     },
     // Search videos by keywords
     searchVideos(query) {
-      this.axios
-        .get(
-          `${global.YOUTUBE_ROOT}/search?part=snippet&q=${query}&maxResults=${this
+      GET(
+          `search?part=snippet&q=${query}&maxResults=${this
             .maxResults}&type=video&order=${this.filterSort}&safeSearch=${this
-            .filterSafe}&key=${global.API_KEY}`
+            .filterSafe}&key=${process.env.API_KEY}`
         )
         .then(res => {
           this.setVideos(res.data.items);
@@ -105,10 +105,8 @@ export default {
       const recursiveSubscription = (nextPage = null) => {
         if (!nextPage) {
           // First Page
-          this.axios
-            .get(
-              `${global.YOUTUBE_ROOT}/subscriptions?part=snippet&mine=true&maxResults=50&key=${global.API_KEY}&access_token=${this
-                .token}`
+          GET(
+              `subscriptions?part=snippet&mine=true&maxResults=50&key=${process.env.API_KEY}&access_token=${this.token}`
             )
             .then(res => {
               subscriptions = res.data.items;
@@ -122,9 +120,9 @@ export default {
               }
             })
             .catch(err => {
-              console.log("Error", err.response);
-              this.$store.commit("LOADING_OFF");
-              if (err.response.status == 401) {
+              console.log('First page error', err);
+							this.$store.commit("LOADING_OFF");
+							if (err.response.status == 401) {
                 if (this.token) {
                   this.emitError(
                     "Sign in expired. Need to re authenticate before getting subscriptions"
@@ -139,9 +137,8 @@ export default {
             });
         } else {
           // Next Pages
-          this.axios
-            .get(
-              `${global.YOUTUBE_ROOT}/subscriptions?part=snippet&mine=true&pageToken=${nextPage}&maxResults=50&key=${global.API_KEY}&access_token=${this
+          GET(
+              `subscriptions?part=snippet&mine=true&pageToken=${nextPage}&maxResults=50&key=${process.env.API_KEY}&access_token=${this
                 .token}`
             )
             .then(res => {
@@ -155,7 +152,7 @@ export default {
               }
             })
             .catch(err => {
-              console.log("Error", err);
+              console.log("recursiveSubscription Next Page Error", err);
               recursiveSubscription(index + 1);
             });
         }
@@ -168,12 +165,11 @@ export default {
       let videos = [];
 
       const recurseMassage = (index = 0) => {
-        this.axios
-          .get(
-            `${global.YOUTUBE_ROOT}/search?part=snippet&channelId=${data[index]
+        GET(
+            `search?part=snippet&channelId=${data[index]
               .snippet.resourceId
               .channelId}&maxResults=${this.maxResults}&type=video&order=date&safeSearch=${this
-              .filterSafe}&key=${global.API_KEY}`
+              .filterSafe}&key=${process.env.API_KEY}`
           )
           .then(res => {
             videos.push(...res.data.items);
@@ -189,7 +185,7 @@ export default {
             }
           })
           .catch(err => {
-            console.log("Error", err);
+            console.log("Massage subscriptions Error", err);
             if (index < data.length - 1) recurseMassage(index + 1);
             else this.setVideos(videos);
           });
@@ -205,14 +201,7 @@ export default {
     // Search channels by username
     searchChannels(query) {
       this.searchQuery = "";
-      this.axios
-        // .get(
-        //   `${global.YOUTUBE_ROOT}/search?part=snippet&type=channel&q=${query}&order=${this
-        //     .filterSort}&maxResults=20&key=${global.API_KEY}`
-        // )
-        .get(
-          `${global.YOUTUBE_ROOT}/search?part=snippet&type=channel&q=${query}&order=relevance&maxResults=20&key=${global.API_KEY}`
-        )
+      GET(`search?part=snippet&type=channel&q=${query}&order=relevance&maxResults=20&key=${process.env.API_KEY}`)
         .then(res => {
           this.$store.commit("LOADING_OFF");
           if (res.data.items.length > 0) {
@@ -223,7 +212,7 @@ export default {
           }
         })
         .catch(err => {
-          console.log("Error", err);
+          console.log("Search channels Error", err);
           this.$store.commit("LOADING_OFF");
           this.emitError("Error finding channel");
         });
@@ -231,9 +220,8 @@ export default {
     // Search playlists by name
     searchPlaylist(query) {
       this.searchQuery = "";
-      this.axios
-        .get(
-          `${global.YOUTUBE_ROOT}/search?part=snippet&type=playlist&q=${query}&maxResults=20&key=${global.API_KEY}`
+      GET(
+          `search?part=snippet&type=playlist&q=${query}&maxResults=20&key=${process.env.API_KEY}`
         )
         .then(res => {
           this.$store.commit("LOADING_OFF");
@@ -245,7 +233,7 @@ export default {
           }
         })
         .catch(err => {
-          console.log("Error", err);
+          console.log("Search Playlist Error", err);
           this.$store.commit("LOADING_OFF");
           this.emitError("Error finding channel");
         });
