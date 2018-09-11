@@ -193,7 +193,6 @@ a:active {
 }
 
 .meta-author {
-  z-index: 10;
   text-overflow: ellipsis;
   overflow-x: hidden;
   white-space: nowrap;
@@ -213,7 +212,7 @@ a:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 11px;
+  padding: 0 31px 0 11px;
 }
 
 .remove-button {

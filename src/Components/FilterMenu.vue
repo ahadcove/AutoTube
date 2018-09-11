@@ -111,6 +111,16 @@
             <div class="filter-row">
                 <button class="filter-safe-button" :disabled="filterSafeDisabled" @click="toggleSafeFilter" :on="filterSafe === 'strict' ? true : false" >Child Filter {{filterSafe === 'strict' ? "On" : "Off"}}</button>
             </div>
+            <div class="filter-row">
+                <div class="filter-keyword-dropdown" :disabled="filterKeywordDisabled" @click="toggleKeywordFilter">
+									Advanced Keyword Filter
+									<icon class="keyword-dropdown-icon" :name="keywordFilterOpen ? 'arrow-up' : 'arrow-down'" title="Open Advanced Filter"></icon>
+								</div>
+            </div>
+						<div v-if="keywordFilterOpen" class="keyword-box-contain">
+							<div>Separate keywords you would like to ignore with a comma</div>
+						  <textarea class="keyword-text-box" v-model="filterKeywords" rows="5" cols="50" placeholder="fortnite,pubg"></textarea>
+						</div>
         </div>
     </div>
 </template>
@@ -121,13 +131,18 @@ import { mapState } from "vuex";
 export default {
   name: "Filter",
   data() {
-    return {};
+    return {
+			keywordFilterOpen: false,
+		};
   },
   methods: {
     toggleSafeFilter() {
       let tempFilterSafe = this.filterSafe === "strict" ? "moderate" : "strict";
       this.$store.commit("UPDATE_FILTER_SAFE", tempFilterSafe);
-    },
+		},
+		toggleKeywordFilter() {
+			this.keywordFilterOpen = !this.keywordFilterOpen;
+		},
     clickedMy(){
       this.$store.commit("UPDATE_MAX_RESULTS", 3);
     }
@@ -137,7 +152,8 @@ export default {
       filterSort: "filterSort",
       filterSafe: "filterSafe",
       filterDate: "filterDate",
-      filterDuration: "filterDuration"
+      filterDuration: "filterDuration",
+      filterKeywords: "filterKeywords",
     }),
     maxLimit() {
       if(this.type == 'my'){
@@ -170,6 +186,14 @@ export default {
         this.$store.commit("UPDATE_MAX_RESULTS", value);
       }
     },
+    filterKeywords: {
+      get() {
+        return this.$store.state.filterKeywords;
+      },
+      set(value) {
+        this.$store.commit("UPDATE_FILTER_KEYWORDS", value.toLowerCase());
+      }
+    },
     filterDateDisabled() {
       if (this.type !== "video") {
         return true;
@@ -190,19 +214,22 @@ export default {
 
       return false;
     },
+    filterKeywordDisabled() {
+      return false;
+    },
     maxResultsDisabled() {
       if (this.type === "my") {
         // return true;
       }
       return false;
-    }
+		},
   }
 };
 </script>
 
 <style scoped>
 #filter-contain {
-  z-index: 1;
+  z-index: 4;
   padding: 40px 2px 20px 2px;
   background-color: var(--navDark);
   position: fixed;
@@ -210,6 +237,8 @@ export default {
   margin: auto;
   left: 0;
   top: 0;
+	overflow-y: scroll;
+	max-height: 80%;
 }
 
 .filter-header {
@@ -247,5 +276,34 @@ input[type="radio"] {
 
 input[type="range"] {
   margin-right: 5px;
+}
+
+.filter-keyword-dropdown {
+	cursor: pointer;
+	user-select: none;
+	margin-top: 20px;
+	font-size: .8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.keyword-dropdown-icon {
+	margin-left: 10px;
+}
+
+.keyword-box-contain {
+	margin-top: 10px;
+	font-size: .8rem;
+}
+
+.keyword-text-box {
+	font-size: 1rem;
+	margin-top: 10px;
+	background-color: rgba(255,255,255, .2);
+	color: white;
+	border-radius: 5px;
+	padding: 5px 10px;
+	max-width: 85%;
 }
 </style>

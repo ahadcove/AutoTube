@@ -13,6 +13,7 @@
 import { mapState } from "vuex";
 import { EventBus } from "../main";
 import { GET, POST } from '../Utilities/RequestHelper.js';
+import escapeStringRegexp from '../Utilities/EscapeRegex.js';
 
 export default {
   name: "Search",
@@ -72,6 +73,17 @@ export default {
     },
     // Set's up new videos and reset vid num
     setVideos(videos) {
+			console.log('Videos', videos);
+			if (this.filterKeywords) {
+				console.log("Filterkeywords", this.filterKeywords)
+				videos = videos.filter((video) => {
+					if (video && video.snippet && video.snippet.title) {
+						return !new RegExp(escapeStringRegexp(this.filterKeywords.split(/[ ,]+/).join('|')), 'g').test(video.snippet.title.toLowerCase());
+					} else {
+						return true;
+					}
+				}); 
+			}
       this.$store.commit("UPDATE_VIDEO_LIST", videos);
       this.searchQuery = "";
       EventBus.$emit("toggle-search", false);
@@ -249,7 +261,8 @@ export default {
       filterSort: "filterSort",
       filterSafe: "filterSafe",
       filterDate: "filterDate",
-      filterDuration: "filterDuration"
+      filterDuration: "filterDuration",
+      filterKeywords: "filterKeywords",
     }),
     placeholder() {
       switch (this.type) {

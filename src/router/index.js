@@ -1,8 +1,7 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import AuthPage from '@/Containers/AuthPage'
-import HomePage from '@/Containers/HomePage'
-import PlayPage from '@/Containers/PlayPage'
+import Vue from 'vue';
+import Router from 'vue-router';
+import AuthPage from '@/Containers/AuthPage';
+import PlayPage from '@/Containers/PlayPage';
 
 Vue.use(Router)
 
@@ -12,11 +11,6 @@ export default new Router({
     return { x: 0, y: 0 }
   },
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'Home',
-    //   component: HomePage
-    // },
     {
       path: '/',
       name: 'PlayVideo',

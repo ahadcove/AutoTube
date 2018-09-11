@@ -2,25 +2,23 @@
     <div id="playlist-page">
         <div class="playlist-head">
             <button class="video-button" @click="previous">«</button>
-            <h3 class="playlist-title">Next Videos</h3>
+            <h3 class="playlist-title">Total Videos: {{ videos.length }}</h3>
             <button class="video-button" @click="next">»</button>
         </div>
         <ul class="next-video-contain">
-            <li class="" v-for="(video, index) in videos" :key="video.etag" :current="index === vidNum">
-                <button class="next-video div-button" :current="index === vidNum">
-                    <span class="index" @click="changeVideo(index)">{{index === vidNum ? "▶" : index+1}}</span>
-                    <div class="thumbnail-container" @click="changeVideo(index)">
-                        <img class="thumbnail" :src="video.snippet.thumbnails.default.url" />
-                    </div>
-                    <div class="meta-contain" @click="changeVideo(index)">
-                        <span class="meta-title">{{video.snippet.title}}</span>
-                        <span class="meta-author">{{video.snippet.channelTitle}}</span>
-                    </div>
-                    <div class="remove-contain">
-                        <button class="remove-button" @click="removeVideo(index)">x</button>
-                    </div>
-                </button>
-            </li>
+					<button class="next-video div-button" v-for="(video, index) in videos" :key="video.etag" :current="index === vidNum">
+							<span class="index" @click="changeVideo(index)">{{index === vidNum ? "▶" : index+1}}</span>
+							<div class="thumbnail-container" @click="changeVideo(index)">
+									<img class="thumbnail" :src="video.snippet.thumbnails.default.url" />
+							</div>
+							<div class="meta-contain" @click="changeVideo(index)">
+									<span class="meta-title">{{video.snippet.title}}</span>
+									<span class="meta-author">{{video.snippet.channelTitle}}</span>
+							</div>
+							<div class="remove-contain">
+									<button class="remove-button" @click="removeVideo(index)">x</button>
+							</div>
+					</button>
         </ul>
     </div>
 </template>
@@ -101,10 +99,15 @@ export default {
   cursor: pointer;
   width: 100%;
   padding: 4px 0 4px 0;
+	border-bottom: 1px rgba(255,255,255,0.1) solid;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+}
+
+.next-video:last-of-type {
+	border-bottom: none;
 }
 
 .next-video:hover {
@@ -116,7 +119,7 @@ export default {
 }
 
 .index {
-  width: 12px;
+	min-width: 31px;
   color: var(--triDark);
   text-align: left;
   padding: 0 11px;

@@ -33,6 +33,7 @@ export default new Vuex.Store({
         filterSafe: "moderate", // Moderate or strict
         filterDate: null,
         filterDuration: null,
+        filterKeywords: null,
     },
     getters: {
         token: state => state.token,
@@ -89,6 +90,9 @@ export default new Vuex.Store({
         },
         UPDATE_MAX_RESULTS(state, value) {
             state.maxResults = value
+        },
+        UPDATE_FILTER_KEYWORDS(state, value) {
+            state.filterKeywords = value
         },
         REMOVE_VIDEO(state, value) {
             state.videos.splice(value, 1);
