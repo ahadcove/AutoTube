@@ -1,7 +1,7 @@
 # AutoTube - The Missing Youtube Player
 
 <p align="center">
-    <a href="https://auto-tube.com" target="_blank">
+    <a href="https://autotube.ahadcove.com" target="_blank">
       <img src="static/AutoTube-Logo.png" alt="AutoTube Logo" width="55%"/>
     </a>
 </p>
@@ -10,10 +10,10 @@ AutoTube is the all in one youtube player that you never knew you needed, develo
 
 Ever wondered why youtube hasn't implemented certain features like being able to make a playlist of your subscriptions newest videos in a click of a button? Me too, that's why I created AutoTube. Spend less time making playlists and more on your work!
 
-## [Live-Site](https://auto-tube.com)
+## [Live-Site](https://autotube.ahadcove.com)
 
 <p align="center">
-  <a href="https://auto-tube.com" target="_blank">
+  <a href="https://autotube.ahadcove.com" target="_blank">
     <img src="static/screenshots/shot1.png" alt="AutoTube Screenshot 1" width="90%"/>
   </a>
 </p>
@@ -34,7 +34,7 @@ Using AutoTube will get rid of almost all of the ads that you would normally fac
 ## Features
 
 <p align="center">
-    <a href="https://auto-tube.com" target="_blank">
+    <a href="https://autotube.ahadcove.com" target="_blank">
       <img src="static/screenshots/shot2.png" alt="AutoTube" width="75%"/>
     </a>
 </p>
