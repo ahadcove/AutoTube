@@ -29,15 +29,18 @@ export default {
   methods: {
     ready(player) {
       this.player = player;
+			this.player.setPlaybackRate(this.$store.state.playbackRate);
     },
 
     // Goto next video either by click or by end of video
     next() {
       this.$store.commit("NEXT_VIDEO");
+			this.player.setPlaybackRate(this.$store.state.playbackRate);
     },
     // Goto previous video by click
     previous() {
       this.$store.commit("PREVIOUS_VIDEO");
+			this.player.setPlaybackRate(this.$store.state.playbackRate);
     },
     playing() {
     },
@@ -58,15 +61,6 @@ export default {
       this.player.pauseVideo();
     },
     getPlayerSize(type = undefined) {
-      // console.log(
-      //   "type",
-      //   type,
-      //   "width",
-      //   window.screen.width,
-      //   "height",
-      //   window.screen.height
-      // );
-
       let width = window.screen.width;
       let height = window.screen.height;
 

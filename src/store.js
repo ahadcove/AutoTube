@@ -6,7 +6,7 @@ import { EventBus } from './main';
 Vue.use(Vuex)
 
 const blacklist = ["LOADING_ON", "LOADING_OFF", "UPDATE_MAX_RESULTS", "UPDATE_FILTER_SAFE",
-"UPDATE_TYPE", "UPDATE_FILTER_SORT"];
+"UPDATE_TYPE", "UPDATE_FILTER_SORT", "UPDATE_PLAYBACK_RATE"];
 
 export default new Vuex.Store({
     plugins: [createPersistedState({
@@ -18,6 +18,7 @@ export default new Vuex.Store({
         refreshToken: "",
         type: 'video',
         maxResults: 20,
+        playbackRate: 1,
         vidNum: 0,
         videos: [
             { snippet: { title: "Lumia Twitch V1.0 - the clear bridge between your Phillips Hue, Twitch, and your viewers", channelTitle: "Lumia Cove", channelId: "UCJbwDiIYMayp69dJsisX6AA", thumbnails: { default: { url: "https://i.ytimg.com/vi/Gog3GsJEu4w/default.jpg" } } }, id: { videoId: "Gog3GsJEu4w" }, etag: "\"_gJQceDMxJ8gP-8T2HLXUoURK8c/8CGWc-1BxRCjUYLngs6a7SdD6SU\"" },
@@ -90,6 +91,9 @@ export default new Vuex.Store({
         },
         UPDATE_MAX_RESULTS(state, value) {
             state.maxResults = value
+        },
+        UPDATE_PLAYBACK_RATE(state, value) {
+            state.playbackRate = value
         },
         UPDATE_FILTER_KEYWORDS(state, value) {
             state.filterKeywords = value

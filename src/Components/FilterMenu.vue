@@ -113,13 +113,22 @@
             </div>
             <div class="filter-row">
                 <div class="filter-keyword-dropdown" :disabled="filterKeywordDisabled" @click="toggleKeywordFilter">
-									Advanced Keyword Filter
-									<icon class="keyword-dropdown-icon" :name="keywordFilterOpen ? 'arrow-up' : 'arrow-down'" title="Open Advanced Filter"></icon>
+									Advanced
+									<icon class="keyword-dropdown-icon" :name="advancedMenuOpen ? 'arrow-up' : 'arrow-down'" title="Open Advanced Filter"></icon>
 								</div>
             </div>
-						<div v-if="keywordFilterOpen" class="keyword-box-contain">
-							<div>Separate keywords you would like to ignore with a comma</div>
-						  <textarea class="keyword-text-box" v-model="filterKeywords" rows="5" cols="50" placeholder="fortnite,pubg"></textarea>
+						<div v-if="advancedMenuOpen" class="keyword-box-contain">
+							<div>
+								<div class="filter-header">Playback Rate</div>
+								<div class="filter-row">
+									<input type="range" min=".5" max="2" step=".5" v-model="playbackRate">
+									<span>{{playbackRate}}</span>
+								</div>
+							</div>
+							<div class="keyword-box-contain">
+								<div>Separate keywords you would like to ignore with a comma</div>
+								<textarea class="keyword-text-box" v-model="filterKeywords" rows="5" cols="50" placeholder="fortnite,pubg"></textarea>
+							</div>
 						</div>
         </div>
     </div>
@@ -132,7 +141,7 @@ export default {
   name: "Filter",
   data() {
     return {
-			keywordFilterOpen: false,
+			advancedMenuOpen: false,
 		};
   },
   methods: {
@@ -141,7 +150,7 @@ export default {
       this.$store.commit("UPDATE_FILTER_SAFE", tempFilterSafe);
 		},
 		toggleKeywordFilter() {
-			this.keywordFilterOpen = !this.keywordFilterOpen;
+			this.advancedMenuOpen = !this.advancedMenuOpen;
 		},
     clickedMy(){
       this.$store.commit("UPDATE_MAX_RESULTS", 3);
@@ -194,6 +203,15 @@ export default {
         this.$store.commit("UPDATE_FILTER_KEYWORDS", value.toLowerCase());
       }
     },
+		playbackRate: {
+			get() {
+				return this.$store.state.playbackRate;
+			},
+			set(value) {
+				console.log('value: ', value);
+        this.$store.commit("UPDATE_PLAYBACK_RATE", value);
+      }
+		},
     filterDateDisabled() {
       if (this.type !== "video") {
         return true;
